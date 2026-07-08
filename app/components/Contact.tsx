@@ -7,8 +7,8 @@ const socials = [
     href: "https://www.linkedin.com/in/karthik-shanbhag-9339631bb",
   },
   {
-    label: "Instagram",
-    href: "https://www.instagram.com/karthik__shanbhag/",
+    label: "GitHub",
+    href: "https://github.com/karthikshanbhag",
   },
   {
     label: "Email",

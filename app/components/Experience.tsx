@@ -1,39 +1,15 @@
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
-const jobs = [
-  {
-    company: "Qwodel",
-    role: "Software Engineer",
-    period: "Jan 2026 — Present",
-    points: [
-      "Built Qwodel.com, an artifact-first AI model quantization orchestration platform for large-scale quantization and optimization of AI models.",
-      "Designed the core orchestration engine supporting multi-GPU workflows, fused kernels, runtime estimation, accuracy tracking, and deterministic pipelines.",
-      "Developed infrastructure for portable, versioned, audit-ready model artifacts deployable across cloud, on-prem, or edge.",
-    ],
-    tags: ["AI Infrastructure", "Orchestration", "Multi-GPU"],
-  },
-  {
-    company: "Redrhynos",
-    role: "Software Engineer",
-    period: "Jan 2026 — Present",
-    points: [
-      "Developed MVPSuites.com, an end-to-end booking platform for premium VIP tickets and suites — concerts, sports, and theater.",
-      "Built the full backend, frontend, booking logic, and infrastructure from scratch, enabling secure online bookings.",
-    ],
-    tags: ["Full-Stack", "Bookings", "Payments"],
-  },
-  {
-    company: "Anmaya.in",
-    role: "Software Engineer",
-    period: "Jan 2026 — Present",
-    points: [
-      "Independently built a remote laboratory platform adopted by multiple engineering colleges for ECE students.",
-      "Students compile Verilog on server infrastructure that executes on real Raspberry Pi hardware, with a live video feed of LED outputs.",
-      "Owned the full stack: compilation pipeline, hardware integration, and real-time video streaming.",
-    ],
-    tags: ["Hardware", "Real-Time Video", "Verilog"],
-  },
+type Job = {
+  company: string;
+  role: string;
+  period: string;
+  points: string[];
+  tags: string[];
+};
+
+const primaryJobs: Job[] = [
   {
     company: "UniCourt India",
     role: "Software Engineer",
@@ -49,6 +25,74 @@ const jobs = [
   },
 ];
 
+const independentJobs: Job[] = [
+  {
+    company: "Qwodel",
+    role: "Founding Engineer · Contract",
+    period: "Jan 2026 — Present",
+    points: [
+      "Built Qwodel.com, an artifact-first AI model quantization orchestration platform for large-scale quantization and optimization of AI models.",
+      "Designed the core orchestration engine supporting multi-GPU workflows, fused kernels, runtime estimation, accuracy tracking, and deterministic pipelines.",
+      "Developed infrastructure for portable, versioned, audit-ready model artifacts deployable across cloud, on-prem, or edge.",
+    ],
+    tags: ["AI Infrastructure", "Orchestration", "Multi-GPU"],
+  },
+  {
+    company: "Redrhynos",
+    role: "Sole Engineer · Contract",
+    period: "Jan 2026 — Present",
+    points: [
+      "Developed MVPSuites.com, an end-to-end booking platform for premium VIP tickets and suites — concerts, sports, and theater.",
+      "Built the full backend, frontend, booking logic, and infrastructure from scratch, enabling secure online bookings.",
+    ],
+    tags: ["Full-Stack", "Bookings", "Payments"],
+  },
+  {
+    company: "Anmaya.in",
+    role: "Sole Engineer · Contract",
+    period: "Jan 2026 — Present",
+    points: [
+      "Independently built a remote laboratory platform adopted by multiple engineering colleges for ECE students.",
+      "Students compile Verilog on server infrastructure that executes on real Raspberry Pi hardware, with a live video feed of LED outputs.",
+      "Owned the full stack: compilation pipeline, hardware integration, and real-time video streaming.",
+    ],
+    tags: ["Hardware", "Real-Time Video", "Verilog"],
+  },
+];
+
+function JobEntry({ job, delay }: { job: Job; delay: number }) {
+  return (
+    <Reveal delay={delay}>
+      <div className="timeline-dot relative">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h3 className="text-xl font-semibold text-slate-100">
+            {job.role} <span className="text-cyan-300">@ {job.company}</span>
+          </h3>
+          <span className="font-mono text-xs text-slate-500">{job.period}</span>
+        </div>
+        <ul className="mt-4 space-y-2">
+          {job.points.map((point) => (
+            <li key={point} className="flex gap-4 text-sm leading-relaxed text-slate-400">
+              <span className="mt-1 shrink-0 text-cyan-500">▹</span>
+              {point}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {job.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-slate-700/80 bg-slate-800/40 px-3 py-1 font-mono text-xs text-slate-300"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
 export default function Experience() {
   return (
     <section id="experience" className="mx-auto max-w-6xl px-5 py-24">
@@ -56,38 +100,24 @@ export default function Experience() {
         <SectionHeading index="02" title="Experience" />
       </Reveal>
       <div className="relative ml-2 border-l border-slate-800 pl-8 space-y-12">
-        {jobs.map((job, i) => (
-          <Reveal key={job.company} delay={i * 100}>
-            <div className="timeline-dot relative">
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-xl font-semibold text-slate-100">
-                  {job.role}{" "}
-                  <span className="text-cyan-300">@ {job.company}</span>
-                </h3>
-                <span className="font-mono text-xs text-slate-500">
-                  {job.period}
-                </span>
-              </div>
-              <ul className="mt-4 space-y-2">
-                {job.points.map((point) => (
-                  <li key={point} className="flex gap-3 text-sm leading-relaxed text-slate-400">
-                    <span className="mt-1 shrink-0 text-cyan-500">▹</span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {job.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-slate-700/80 bg-slate-800/40 px-3 py-1 font-mono text-xs text-slate-300"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </Reveal>
+        {primaryJobs.map((job, i) => (
+          <JobEntry key={job.company} job={job} delay={i * 100} />
+        ))}
+
+        <Reveal>
+          <div className="pt-2">
+            <p className="font-mono text-xs tracking-widest text-cyan-400/90">
+              // INDEPENDENT &amp; CONTRACT PLATFORM WORK
+            </p>
+            <p className="mt-1 text-sm text-slate-500">
+              Complete production platforms designed, built, and operated
+              single-handedly — architecture to deployment.
+            </p>
+          </div>
+        </Reveal>
+
+        {independentJobs.map((job, i) => (
+          <JobEntry key={job.company} job={job} delay={i * 100} />
         ))}
       </div>
     </section>

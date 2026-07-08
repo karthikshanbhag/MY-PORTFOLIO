@@ -43,10 +43,10 @@ function useTypewriter() {
 }
 
 const stats = [
-  { value: "2+", label: "years of experience" },
-  { value: "4", label: "production platforms shipped" },
-  { value: "80%", label: "API latency reduction" },
-  { value: "4000+", label: "US courts' data processed" },
+  { value: "3", label: "production platforms built solo — design to deploy" },
+  { value: "80%", label: "average API latency reduction" },
+  { value: "4000+", label: "US courts' litigation data processed" },
+  { value: "E2E", label: "backend, frontend & infra ownership" },
 ];
 
 export default function Hero() {
@@ -72,11 +72,11 @@ export default function Hero() {
           <span className="cursor-blink text-cyan-400">▍</span>
         </h2>
         <p className="mt-6 max-w-2xl leading-relaxed text-slate-400">
-          Engineer with 2+ years of experience designing, building, and shipping
-          complete production platforms from scratch — from AI model quantization
-          infrastructure to remote hardware labs and enterprise SaaS APIs.
-          Deep in NestJS, PostgreSQL, Redis, event-driven architecture, React,
-          and Next.js.
+          I design, build, and run complete production platforms end-to-end —
+          AI model quantization infrastructure, a remote hardware lab used by
+          engineering colleges, premium event ticketing, and enterprise SaaS
+          APIs processing litigation data from 4000+ US courts. Deep in NestJS,
+          PostgreSQL, Redis, event-driven architecture, React, and Next.js.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-4">

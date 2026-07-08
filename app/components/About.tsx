@@ -11,10 +11,11 @@ export default function About() {
         <Reveal className="md:col-span-3" delay={100}>
           <div className="space-y-4 leading-relaxed text-slate-400">
             <p>
-              I&apos;m a Software Development Engineer who likes owning things
+              I&apos;m a Software Development Engineer who owns systems
               end-to-end — from the first schema migration to the deploy
-              pipeline. Over the last 2+ years I&apos;ve independently designed,
-              built, and shipped multiple complete production platforms.
+              pipeline. I&apos;ve independently designed, built, and shipped
+              three complete production platforms, each one solo, from scratch,
+              and each one live today.
             </p>
             <p>
               At <span className="text-cyan-300">UniCourt</span> I work on an
