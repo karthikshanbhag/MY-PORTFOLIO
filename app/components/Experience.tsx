@@ -71,7 +71,7 @@ export default function Experience() {
               <ul className="mt-4 space-y-2">
                 {job.points.map((point) => (
                   <li key={point} className="flex gap-3 text-sm leading-relaxed text-slate-400">
-                    <span className="mt-1 text-cyan-500">▹</span>
+                    <span className="mt-1 shrink-0 text-cyan-500">▹</span>
                     {point}
                   </li>
                 ))}
