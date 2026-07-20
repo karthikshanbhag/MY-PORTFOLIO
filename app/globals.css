@@ -105,7 +105,7 @@ body {
 .timeline-dot::before {
   content: "";
   position: absolute;
-  left: -5px;
+  left: -38px;
   top: 8px;
   width: 11px;
   height: 11px;
